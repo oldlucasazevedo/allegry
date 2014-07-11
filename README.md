@@ -1,4 +1,4 @@
-allegry
+Allegry
 =======
 
-A nice and flexible accordion gallery using JQuery. 
+A nice Accordion Gallery using JQuery 

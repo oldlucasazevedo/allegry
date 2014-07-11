@@ -1,0 +1,11 @@
+.allegry .accordion {
+  width: 100%;
+  height: 700px;
+  position: relative;
+  border: 1px solid green;
+}
+.allegry .accordion .image {
+  display: block;
+  height: inherit;
+  float: left;
+}
