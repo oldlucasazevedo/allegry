@@ -24,6 +24,7 @@ $(function() {
             backgroundImage:'url('+imagePath+')',
             left: String(leftOffset + imageWidth) + '%'
         });
+
         leftOffset = leftOffset + imageWidth;
     });
 
