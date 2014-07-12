@@ -1,1 +1,1 @@
-{"version":3,"sources":["less/allegry.less"],"names":[],"mappings":"AAAA,QACI;EACI,WAAA;EACA,aAAA;EACA,kBAAA;EACA,uBAAA;;AALR,QACI,WAKI;EACI,cAAA;EACA,eAAA;EACA,WAAA"}
+{"version":3,"sources":["less/allegry.less"],"names":[],"mappings":"AAAA,QACI;EACI,WAAA;EACA,aAAA;EACA,kBAAA;EACA,uBAAA;;AALR,QACI,WAKI;EACI,kBAAA;EACA,UAAA;EACA,eAAA"}

@@ -1,43 +1,38 @@
 'use strict';
 $(function() {
 
+
     //config
-    var imagesIdentifier = '.image';//your class or id
     var imagesFolder = 'images/';//the path to images
     var duration = 500;//animation's duration in mileseconds
-    var animationType = '1';
     var imageSize = '40%';//amount of image revealed on hover
 
-    //loading animations files
-    var animationUrl = 'scripts/animations/animation' + animationType + '.js';
-    $.getScript(animationUrl)
-        .done(function(){
-            console.log('Animation file loaded');
-        })
-        .fail(function(){
-            $.getScript('scripts/animations/animationDefault.js')
-            .fail(function(){
-                console.log('Missing Animation File or animationType is undefined.');
-            });
-        });
-
     //variables
-    var $images = $(imagesIdentifier);
+    var $image = $('.image');
 
     //calculate imageWidth relative to number of images
-    var imageWidth = (100/$images.length);
+    var imageWidth = (100/$image.length);
+
+    //don't touch it
+    var leftOffset = -imageWidth;
 
     //setting up background images
-    $images.each(function(){
+    $image.each(function(){
         var imagePath = imagesFolder + $(this).data('image');
-        $(this).css({width: String(imageWidth) + '%', backgroundImage:'url('+imagePath+')'});
+        $(this).css({
+            width: String(imageWidth) + '%',
+            backgroundImage:'url('+imagePath+')',
+            left: String(leftOffset + imageWidth) + '%'
+        });
+        leftOffset = leftOffset + imageWidth;
     });
 
     //hover effects
-    $images.hover(
+    $image.hover(
         function(){
+            $(this).css({zIndex: 2});
             $(this).stop().animate({
-                width:imageSize
+                width:imageSize,
             },
             duration,
             'easeOutQuint'
@@ -45,6 +40,7 @@ $(function() {
         },
 
         function(){
+            $(this).css({zIndex: 1});
             $(this).stop().animate({
                 width:String(imageWidth) + '%'
             },
@@ -52,7 +48,7 @@ $(function() {
             'easeOutQuint'
             );
         }
-    );//$images.hover
+    );//$image.hover
 
     // //animators
     // function animatorIn(images) {
@@ -61,8 +57,8 @@ $(function() {
     //         case 1:
     //             images.stop().animate({
     //                 width: imageSize},
-    //                 duration, 
-    //                 'easeOutQuint');                
+    //                 duration,
+    //                 'easeOutQuint');
     //             break;
     //         default:
     //             //nothing

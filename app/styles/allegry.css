@@ -5,7 +5,7 @@
   border: 1px solid green;
 }
 .allegry .accordion .image {
-  display: block;
+  position: absolute;
+  z-index: 1;
   height: inherit;
-  float: left;
 }
