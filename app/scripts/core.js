@@ -1,7 +1,6 @@
 'use strict';
 $(function() {
 
-
     //config
     var imagesFolder = 'images/';//the path to images
     var duration = 500;//animation's duration in mileseconds
@@ -28,27 +27,56 @@ $(function() {
         leftOffset = leftOffset + imageWidth;
     });
 
+    //add class to last image
+    $image.last().addClass('last');
+
     //hover effects
     $image.hover(
+
+        //hover
         function(){
-            $(this).css({zIndex: 2});
-            $(this).stop().animate({
-                width:imageSize,
-            },
-            duration,
-            'easeOutQuint'
-            );
+            $(this).css('zIndex','2');
+            if($(this).hasClass('last')){
+                $(this).stop().animate({
+                    width:imageSize,
+                    left:String((($(this).position().left) - (($(this).position().left)*20)/100))+'px'
+                },
+                duration,
+                'easeOutQuint'
+                );
+            }
+            else {
+                $(this).stop().animate({
+                    width:imageSize,
+                },
+                duration,
+                'easeOutQuint'
+                );
+            }
         },
 
+        //out
         function(){
-            $(this).css({zIndex: 1});
-            $(this).stop().animate({
-                width:String(imageWidth) + '%'
-            },
-            duration,
-            'easeOutQuint'
-            );
+            $(this).css('zIndex','1');
+            if($(this).hasClass('last')){
+                $(this).stop().animate({
+                    width:imageSize,
+                    left:String((($(this).position().left) + (($(this).position().left)*20)/100))+'px'
+                },
+                duration,
+                'easeOutQuint'
+                );
+            }
+            else {
+                $(this).stop().animate({
+                    width:imageSize,
+                },
+                duration,
+                'easeOutQuint'
+                );
+            }
         }
+
     );//$image.hover
 
     // //animators
