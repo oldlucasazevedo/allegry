@@ -61,7 +61,7 @@ $(function() {
             if($(this).hasClass('last')){
                 $(this).stop().animate({
                     width:imageSize,
-                    left:String((($(this).position().left) + (($(this).position().left)*20)/100))+'px'
+                    left: String(imageWidth * ($image.length-1)) + '%'
                 },
                 duration,
                 'easeOutQuint'
@@ -77,7 +77,7 @@ $(function() {
             }
         }
 
-    );//$image.hover
+    );
 
     // //animators
     // function animatorIn(images) {
