@@ -2,9 +2,11 @@
   width: 100%;
   height: 500px;
   position: relative;
+  background-color: #000;
 }
 .allegry .accordion .image {
   position: absolute;
-  z-index: 1;
+  cursor: pointer;
   height: inherit;
+  opacity: .4;
 }
